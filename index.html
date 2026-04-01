@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClimateAI Intelligence Platform</title>
+  <meta name="description" content="AI-driven climate change intelligence prediction platform.">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body>
+
+  <!-- Top Navigation & Theme -->
+  <button id="nav-login-btn" class="glass-button" style="position: absolute; top: 20px; left: 20px; width: auto; padding: 0.5rem 1rem; margin: 0; z-index: 100;">Login</button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+
+  <!-- Auth Modal -->
+  <div id="auth-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px);">
+      <div class="glass-panel" style="position: relative; width: 350px;">
+          <span id="close-auth" style="position: absolute; top: 15px; right: 20px; cursor: pointer; font-size: 1.2rem;">✕</span>
+          <h2 style="margin-bottom: 1.5rem;">Account Access</h2>
+          <form id="auth-form">
+              <input type="text" id="auth-username" class="glass-input" placeholder="Username" required style="margin-bottom: 1rem;">
+              <input type="password" id="auth-password" class="glass-input" placeholder="Password" required style="margin-bottom: 1.5rem;">
+              <p id="auth-error" style="color: var(--error-color); font-size: 0.85rem; margin-bottom: 1rem; min-height: 20px;"></p>
+              <div style="display: flex; gap: 10px;">
+                  <button type="submit" id="btn-login" class="glass-button" style="margin-top: 0; flex: 1;">Login</button>
+                  <button type="submit" id="btn-register" class="glass-button" style="margin-top: 0; flex: 1; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);">Register</button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <main class="glass-panel">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+        <h1 class="title" style="margin-bottom: 0;">Climate Intelligence</h1>
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_q5pk6p1k.json" background="transparent" speed="1" style="width: 50px; height: 50px;" loop autoplay></lottie-player>
+    </div>
+    <p class="subtitle" style="margin-top: 0.5rem;">AI-Driven Predictive Weather Analytics</p>
+
+    <form id="predict-form">
+      
+      <div class="form-group">
+        <label for="humidity">Humidity (%)</label>
+        <input class="glass-input" type="number" id="humidity" name="humidity" placeholder="e.g. 65" required step="any">
+      </div>
+
+      <div class="form-group">
+        <label for="pressure">Atmospheric Pressure (mb)</label>
+        <input class="glass-input" type="number" id="pressure" name="pressure_mb" placeholder="e.g. 1012" required step="any">
+      </div>
+
+      <div class="form-group">
+        <label for="wind">Wind Speed (kph)</label>
+        <input class="glass-input" type="number" id="wind" name="wind_kph" placeholder="e.g. 15" required step="any">
+      </div>
+      
+      <div class="form-group">
+        <label for="cloud">Cloud Cover (%)</label>
+        <input class="glass-input" type="number" id="cloud" name="cloud" placeholder="e.g. 40" required step="any">
+      </div>
+
+      <div class="form-group">
+        <label for="visibility">Visibility (km)</label>
+        <input class="glass-input" type="number" id="visibility" name="visibility_km" placeholder="e.g. 10" required step="any">
+      </div>
+      
+      <div class="form-group">
+        <label for="uv">UV Index</label>
+        <input class="glass-input" type="number" id="uv" name="uv_index" placeholder="e.g. 5" required step="any">
+      </div>
+
+      <button class="glass-button" type="submit">Predict Weather Pattern</button>
+      
+    </form>
+    
+    <a href="/dashboard" class="glass-button" style="text-decoration: none; display: inline-block; box-sizing: border-box; text-align: center; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border); margin-top: 1rem;">View Dashboard Insights</a>
+  </main>
+
+  <!-- Climate AI Chatbot Widget -->
+  <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Open Climate Assistant">🤖</button>
+  
+  <div id="chat-window" class="chat-window">
+      <div class="chat-header">
+          <span>Climate Analyst AI</span>
+          <span id="close-chat" class="close-chat">✕</span>
+      </div>
+      <div id="chat-messages" class="chat-messages">
+          <div class="message bot">Hello! I am your AI Climate Assistant. How can I help you interpret your metrics today?</div>
+          <div id="typing-indicator" class="typing-indicator">AI is typing...</div>
+      </div>
+      <div class="chat-input-area">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about predictions...">
+          <button id="chat-send" class="chat-send">➤</button>
+      </div>
+  </div>
+
+      </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/app-client.js"></script>
+  <script src="/static/js/chat.js"></script>
+
+  <!-- New Professional Features -->
+  <script src="/static/js/a11y.js"></script>
+  <script src="/static/js/gamification.js"></script>
+  <script src="/static/js/news.js"></script>
+</body>
+</html>

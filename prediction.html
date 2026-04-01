@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prediction Results - ClimateAI</title>
+  <meta name="description" content="AI-driven climate prediction results.">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+  <!-- Top Navigation & Theme -->
+  <button id="nav-login-btn" class="glass-button" style="position: absolute; top: 20px; left: 20px; width: auto; padding: 0.5rem 1rem; margin: 0; z-index: 100;">Login</button>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️</button>
+
+  <main class="glass-panel">
+    <h1 class="title">Analysis Complete</h1>
+    <p class="subtitle">Based on your input parameters, our model predicts:</p>
+    
+    <!-- Dynamic DOM Mount Points for JS -->
+    <div id="prediction-result-dynamic" class="prediction-value">
+        Loading Insight Core...
+    </div>
+
+    <div id="insights-dynamic" class="insights-container">
+        <!-- JS iterates and builds insight cards here -->
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <a href="/" class="glass-button" style="text-decoration: none; display: inline-block; box-sizing: border-box; text-align: center;">Predict Again</a>
+        <a href="/dashboard" class="glass-button" style="text-decoration: none; display: inline-block; box-sizing: border-box; text-align: center; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border);">View Dashboard Insights</a>
+    </div>
+  </main>
+
+  <!-- Climate AI Chatbot Widget -->
+  <button id="chat-toggle-btn" class="chat-toggle-btn" aria-label="Open Climate Assistant">🤖</button>
+  
+  <div id="chat-window" class="chat-window">
+      <div class="chat-header">
+          <span>Climate Analyst AI</span>
+          <span id="close-chat" class="close-chat">✕</span>
+      </div>
+      <div id="chat-messages" class="chat-messages">
+          <div class="message bot">Hello! I am your AI Climate Assistant. How can I help you interpret your metrics today?</div>
+          <div id="typing-indicator" class="typing-indicator">AI is typing...</div>
+      </div>
+      <div class="chat-input-area">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about predictions...">
+          <button id="chat-send" class="chat-send">➤</button>
+      </div>
+  </div>
+
+      </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/app-client.js"></script>
+  <script src="/static/js/chat.js"></script>
+</body>
+</html>
